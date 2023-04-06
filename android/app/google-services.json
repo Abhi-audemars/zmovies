@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "63268732257",
+    "project_id": "zmovies-c16c7",
+    "storage_bucket": "zmovies-c16c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:63268732257:android:a96fb1e1c439b08f841920",
+        "android_client_info": {
+          "package_name": "com.example.zmovies"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "63268732257-1r90vbaofu2vfnf3spf9sp7a7beo20b3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTLj3KehaJhGJnrWCzrp5EzwVxSlC65cw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "63268732257-1r90vbaofu2vfnf3spf9sp7a7beo20b3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
