@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'dart:ui';
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -42,7 +44,7 @@ class _enterPhoneNumberState extends State<enterPhoneNumber> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         width: MediaQuery.of(context).size.width,
         decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -137,7 +139,7 @@ class _enterPhoneNumberState extends State<enterPhoneNumber> {
             const SizedBox(
               height: 10,
             ),
-            Container(
+            SizedBox(
               width: double.infinity,
               child: ClipRRect(
                 child: BackdropFilter(
@@ -150,7 +152,7 @@ class _enterPhoneNumberState extends State<enterPhoneNumber> {
                             });
                             await FirebaseAuth.instance.verifyPhoneNumber(
                               phoneNumber:
-                                  '${countryCode!.dialCode.toString() + phoneController.text}',
+                                  countryCode!.dialCode.toString() + phoneController.text,
                               verificationCompleted:
                                   (PhoneAuthCredential credential) {},
                               verificationFailed: (FirebaseAuthException e) {},
@@ -162,7 +164,7 @@ class _enterPhoneNumberState extends State<enterPhoneNumber> {
                                 enterPhoneNumber.verify = verificationId;
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
-                                    builder: (context) => otpVerificationPage(),
+                                    builder: (context) => const otpVerificationPage(),
                                   ),
                                 );
                               },
@@ -177,7 +179,7 @@ class _enterPhoneNumberState extends State<enterPhoneNumber> {
                       minimumSize: Size(MediaQuery.of(context).size.width, 60),
                       backgroundColor: Colors.transparent.withOpacity(0.9),
                     ),
-                    child:isLoading?const CircularProgressIndicator(color: Colors.white,strokeWidth: 3,): Text('Send OTP'),
+                    child:isLoading?const CircularProgressIndicator(color: Colors.white,strokeWidth: 3,): const Text('Send OTP'),
                   ),
                 ),
               ),

@@ -1,12 +1,11 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:zmovies/pages/choose_login.dart';
 import 'package:zmovies/pages/splash_screen.dart';
 import 'package:zmovies/pages/splashscreen2.dart';
-import 'package:zmovies/utils/drawer.dart';
 
 class AuthService {
   handelAuthState() {
@@ -37,14 +36,14 @@ class AuthService {
       await FirebaseAuth.instance.currentUser!.updateEmail(email);
       await saveuser(email, name, userCredential.user!.uid);
       ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('Registration Successful')));
+          .showSnackBar(const SnackBar(content: Text('Registration Successful')));
     } on FirebaseException catch (e) {
       if (e.code == 'weak-password') {
         ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text('Weak Password')));
+            .showSnackBar(const SnackBar(content: Text('Weak Password')));
       } else if (e.code == 'email-already-in-use') {
         ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text('Email already exists')));
+            .showSnackBar(const SnackBar(content: Text('Email already exists')));
       } else {
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text(e.toString())));
@@ -60,15 +59,15 @@ class AuthService {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
           ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('You are now logged in ')));
+          .showSnackBar(const SnackBar(content: Text('You are now logged in ')));
     } on FirebaseException catch (e) {
       if(e.code=='user-not-found'){
         ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('User does not exists')));
+          .showSnackBar( const SnackBar(content: Text('User does not exists')));
       }
       else if(e.code=='wrong-password'){
         ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('Incorrect Password')));
+          .showSnackBar(const SnackBar(content: Text('Incorrect Password')));
       }
     }
   }

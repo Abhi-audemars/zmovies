@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -15,7 +17,7 @@ class customButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      padding:const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(19),
         color: color,
@@ -33,11 +35,6 @@ class customButton extends StatelessWidget {
                 fontSize: 15, fontWeight: FontWeight.w300, color: Colors.white),
             child: Text(text),
           ),
-          // Text(
-          //   text,
-          //   style:const TextStyle(
-          //       fontSize: 15, fontWeight: FontWeight.w300, color: Colors.white),
-          // ),
         ],
       ),
     );

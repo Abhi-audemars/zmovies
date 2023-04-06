@@ -1,8 +1,8 @@
+// ignore_for_file: camel_case_types, no_leading_underscores_for_local_identifiers
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-// import 'package:flutter/src/widgets/container.dart';
-// import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:lottie/lottie.dart';
 import 'package:zmovies/pages/choose_login.dart';
@@ -24,10 +24,10 @@ class menuScreen extends StatelessWidget {
             height: 50,
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 18),
+            padding: const EdgeInsets.symmetric(horizontal: 18),
             child: Align(
               alignment: Alignment.centerLeft,
-              child: chooseLogin.istrueornot
+              child: ChooseLogin.istrueornot
                   ? CircleAvatar(
                       radius: 40,
                       backgroundImage: NetworkImage(
@@ -46,7 +46,7 @@ class menuScreen extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.centerLeft,
-            child: chooseLogin.istrueornot
+            child: ChooseLogin.istrueornot
                 ? Text(FirebaseAuth.instance.currentUser!.displayName!,
                     style: GoogleFonts.poppins(
                         color: Colors.white70, fontSize: 18))
@@ -56,14 +56,6 @@ class menuScreen extends StatelessWidget {
                         GoogleFonts.poppins(color: Colors.white, fontSize: 16),
                   ),
           ),
-          // child: Text(
-          //   'Welcome',
-          //   style: TextStyle(
-          //       fontSize: 20,
-          //       fontWeight: FontWeight.bold,
-          //       color: Colors.white),
-          // ),
-
           const SizedBox(
             height: 40,
           ),
@@ -156,28 +148,37 @@ class menuScreen extends StatelessWidget {
               _googleSignIn.disconnect();
               auth.signOut().then((value) {
                 Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: (context) => chooseLogin()),
+                    MaterialPageRoute(
+                      builder: (context) => const ChooseLogin(),
+                    ),
                     (route) => false);
               }).onError((error, stackTrace) {
                 // error.toString();
-                SnackBar(content: Text(error.toString()));
+                SnackBar(
+                  content: Text(
+                    error.toString(),
+                  ),
+                );
               });
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const Icon(
+              children: const [
+                Icon(
                   Icons.logout_rounded,
                   color: Colors.white60,
                 ),
-                const SizedBox(
+                SizedBox(
                   width: 5,
                 ),
-                const Text('Logout',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold)),
+                Text(
+                  'Logout',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ],
             ),
           )

@@ -1,11 +1,9 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:lottie/lottie.dart';
-import 'package:shimmer/shimmer.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:zmovies/widgets/topRated.dart';
@@ -37,7 +35,7 @@ class _HomePageState extends State<HomePage> {
   loadMovies() async {
     TMDB tmdbEithCustomLogs = TMDB(
       ApiKeys(apiKey, accessToken),
-      logConfig: ConfigLogger(showLogs: true, showErrorLogs: true),
+      logConfig: const ConfigLogger(showLogs: true, showErrorLogs: true),
     );
 
     Map trendingResult = await tmdbEithCustomLogs.v3.trending.getTrending();
@@ -48,22 +46,19 @@ class _HomePageState extends State<HomePage> {
       topRatedMovies = topRatedResult['results'];
       TvShows = tvResult['results'];
     });
-    print(TvShows);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 0, 6, 11),
+      backgroundColor: const Color.fromARGB(255, 0, 6, 11),
       appBar: AppBar(
         leading: InkWell(
           onTap: () {
-            String? num = user!.phoneNumber;
-            String? name = user!.displayName;
-            print(name);
+      
             ZoomDrawer.of(context)!.toggle();
           },
-          child: Container(
+          child: SizedBox(
             height: 20,
             width: 20,
             child: Lottie.network(
@@ -71,16 +66,10 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-        // IconButton(
-        //   icon:const Icon(Icons.menu),
-        //   onPressed: () {
-        //     ZoomDrawer.of(context)!.toggle();
-        //   },
-        // ),
         title: 'Zmovies'.text.xl5.white.bold.make().shimmer(
-            duration: Duration(seconds: 4),
+            duration: const Duration(seconds: 4),
             primaryColor: Colors.white,
-            secondaryColor: Color.fromARGB(100, 64, 9, 73)),
+            secondaryColor: const Color.fromARGB(100, 64, 9, 73)),
         centerTitle: true,
         elevation: 0.0,
         backgroundColor: Colors.transparent,

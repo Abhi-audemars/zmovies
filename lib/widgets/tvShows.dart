@@ -1,5 +1,6 @@
+// ignore_for_file: camel_case_types, prefer_interpolation_to_compose_strings
+
 import 'package:flutter/material.dart';
-import 'package:tmdb_api/tmdb_api.dart';
 import 'package:zmovies/description.dart';
 import 'package:zmovies/utils/style.dart';
 
@@ -10,15 +11,15 @@ class tvShows extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 10, top: 50),
+      padding: const EdgeInsets.only(left: 10, top: 50),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Textstyle(text: 'Popular TV Shows', color: Colors.white, size: 20),
-          SizedBox(
+          const Textstyle(text: 'Popular TV Shows', color: Colors.white, size: 20),
+          const SizedBox(
             height: 10,
           ),
-          Container(
+          SizedBox(
             height: 200,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
@@ -42,7 +43,7 @@ class tvShows extends StatelessWidget {
                       );
                     },
                     child: Container(
-                      padding: EdgeInsets.only(left: 6),
+                      padding: const EdgeInsets.only(left: 6),
                       width: 250,
                       child: Column(
                         children: [
@@ -60,17 +61,13 @@ class tvShows extends StatelessWidget {
                                   fit: BoxFit.cover),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
-                          Container(
-                            child: Textstyle(
-                                text: tvshows[index]['name'] != null
-                                    ? tvshows[index]['name']
-                                    : 'loading',
-                                color: Color.fromARGB(255, 165, 163, 163),
-                                size: 12),
-                          )
+                          Textstyle(
+                              text: tvshows[index]['name'] ?? 'loading',
+                              color: const Color.fromARGB(255, 165, 163, 163),
+                              size: 12)
                         ],
                       ),
                     ),

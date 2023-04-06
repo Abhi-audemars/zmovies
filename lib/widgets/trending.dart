@@ -1,5 +1,6 @@
+// ignore_for_file: prefer_interpolation_to_compose_strings
+
 import 'package:flutter/material.dart';
-import 'package:tmdb_api/tmdb_api.dart';
 import 'package:zmovies/description.dart';
 import 'package:zmovies/utils/style.dart';
 
@@ -10,15 +11,15 @@ class TrendingMovies extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Textstyle(text: 'Trending Movies', color: Colors.white, size: 20),
-          SizedBox(
+          const Textstyle(text: 'Trending Movies', color: Colors.white, size: 20),
+          const SizedBox(
             height: 10,
           ),
-          Container(
+          SizedBox(
             height: 270,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
@@ -43,12 +44,12 @@ class TrendingMovies extends StatelessWidget {
                       );
                     },
                     child: trending[index]['name'] != null
-                        ? Container(
+                        ? SizedBox(
                             width: 140,
                             child: Column(
                               children: [
                                 Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 10),
+                                  padding: const EdgeInsets.symmetric(horizontal: 10),
                                   // margin: EdgeInsets.symmetric(horizontal: 10),
                                   height: 200,
                                   decoration: BoxDecoration(
@@ -61,15 +62,11 @@ class TrendingMovies extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                Container(
-                                  child: Textstyle(
-                                      text: trending[index]['name']==null? trending[index]['title']:trending[index]['name']  ,
-                                      // != null
-                                      //     ? trending[index]['name']
-                                      //     : 'loading',
-                                      color: Color.fromARGB(255, 165, 163, 163),
-                                      size: 12),
-                                )
+                                Textstyle(
+                                    text: trending[index]['name'] ?? trending[index]['title']  ,
+                                   
+                                    color: const Color.fromARGB(255, 165, 163, 163),
+                                    size: 12)
                               ],
                             ),
                           )

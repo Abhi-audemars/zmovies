@@ -2,8 +2,6 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:zmovies/pages/choose_login.dart';
-import 'package:zmovies/services/auth_service.dart';
 import 'package:zmovies/utils/drawer.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -18,9 +16,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 5), () {
+    Timer(const Duration(seconds: 5), () {
       Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (context) => drawer()), (route) => false);
+          MaterialPageRoute(builder: (context) =>const drawer()), (route) => false);
     });
   }
 

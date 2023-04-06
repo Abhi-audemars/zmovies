@@ -11,18 +11,17 @@ import 'package:zmovies/utils/customButton.dart';
 import 'package:zmovies/utils/drawer.dart';
 // import 'package:zmovies/utils/drawer.dart';
 
-class chooseLogin extends StatefulWidget {
-  const chooseLogin({super.key});
+class ChooseLogin extends StatefulWidget {
+  const ChooseLogin({super.key});
   static bool istrueornot = false;
 
   @override
-  State<chooseLogin> createState() => _chooseLoginState();
+  State<ChooseLogin> createState() => _ChooseLoginState();
 }
 
-class _chooseLoginState extends State<chooseLogin> {
+class _ChooseLoginState extends State<ChooseLogin> {
   @override
   Widget build(BuildContext context) {
-    final user = FirebaseAuth.instance.currentUser;
 
     return Container(
       // width: MediaQuery.of(context).size.width,
@@ -61,7 +60,7 @@ class _chooseLoginState extends State<chooseLogin> {
             ),
             GestureDetector(
               onTap: () {
-                chooseLogin.istrueornot = false;
+                ChooseLogin.istrueornot = false;
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => const enterPhoneNumber()));
               },
@@ -78,16 +77,15 @@ class _chooseLoginState extends State<chooseLogin> {
             GestureDetector(
               onTap: () {
                 try {
-                  chooseLogin.istrueornot = true;
+                  ChooseLogin.istrueornot = true;
                   AuthService().signInWithGoogle();
                   FirebaseAuth.instance.authStateChanges().listen((User? user) {
                     if (user == null) {
-                      print('fuccck');
+                      debugPrint('fuccck');
                     } else {
                       Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(builder: (context) =>const drawer()),
                           (route) => false);
-                      print('signed in');
                     }
                   });
                 } on FirebaseAuthException catch (e) {

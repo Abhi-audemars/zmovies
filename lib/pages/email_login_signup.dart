@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -81,14 +83,14 @@ class _LoginSignupEmailState extends State<LoginSignupEmail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(91, 45, 44, 44),
+      backgroundColor: const Color.fromARGB(91, 45, 44, 44),
       body: Stack(
         children: [
           submitButton2(true),
           Positioned(
             top: isSignUpScreen ? 200 : 230,
             child: AnimatedContainer(
-              duration: Duration(microseconds: 900),
+              duration: const Duration(microseconds: 900),
               curve: Curves.bounceOut,
               child: Container(
                 padding: const EdgeInsets.all(20),
@@ -102,7 +104,7 @@ class _LoginSignupEmailState extends State<LoginSignupEmail> {
                   boxShadow: [
                     BoxShadow(
                         color:
-                            Color.fromARGB(255, 222, 220, 220).withOpacity(0.3),
+                            const Color.fromARGB(255, 222, 220, 220).withOpacity(0.3),
                         blurRadius: 9,
                         spreadRadius: 4),
                   ],
@@ -185,7 +187,7 @@ class _LoginSignupEmailState extends State<LoginSignupEmail> {
     );
   }
 
-  Positioned submitButton2(bool Shadows) {
+  Positioned submitButton2(bool shadows) {
     return Positioned(
       top: isSignUpScreen ? 454 : 440,
       right: 0,
@@ -203,14 +205,14 @@ class _LoginSignupEmailState extends State<LoginSignupEmail> {
                 color: Colors.black,
                 borderRadius: BorderRadius.circular(50),
                 boxShadow: [
-                  if (Shadows)
+                  if (shadows)
                     BoxShadow(
                         color: Colors.white.withOpacity(0.3),
-                        offset: Offset(0, 1),
+                        offset: const Offset(0, 1),
                         spreadRadius: 1.5,
                         blurRadius: 8)
                 ]),
-            child: !Shadows
+            child: !shadows
                 ? Container(
                     decoration: BoxDecoration(
                         gradient: const LinearGradient(
@@ -225,7 +227,7 @@ class _LoginSignupEmailState extends State<LoginSignupEmail> {
                           BoxShadow(
                               color: Colors.black.withOpacity(0.2),
                               spreadRadius: 1,
-                              offset: Offset(0, 1))
+                              offset: const Offset(0, 1))
                         ]),
                     child: const Icon(
                       Icons.arrow_forward,

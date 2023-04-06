@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types, use_build_context_synchronously
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,7 +17,7 @@ class otpVerificationPage extends StatefulWidget {
 
 class _otpVerificationPageState extends State<otpVerificationPage> {
   final FirebaseAuth auth = FirebaseAuth.instance;
-  
+
   bool isLoading = false;
   var code = '';
   @override
@@ -65,8 +67,9 @@ class _otpVerificationPageState extends State<otpVerificationPage> {
                   width: 80,
                   height: 60,
                   decoration: BoxDecoration(
-                    border: Border.all(color: Color.fromRGBO(234, 239, 243, 1)),
-                    color: Color.fromARGB(250, 148, 146, 146),
+                    border: Border.all(
+                        color: const Color.fromRGBO(234, 239, 243, 1)),
+                    color: const Color.fromARGB(250, 148, 146, 146),
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
@@ -88,10 +91,10 @@ class _otpVerificationPageState extends State<otpVerificationPage> {
                     isLoading = false;
                   });
                   Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute(builder: (context) => drawer()),
+                      MaterialPageRoute(builder: (context) => const drawer()),
                       (route) => false);
                 } catch (e) {
-                  print('wrong otp');
+                  e.toString();
                 }
               },
               style: ElevatedButton.styleFrom(
