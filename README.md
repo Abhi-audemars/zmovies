@@ -1,16 +1,16 @@
 # zmovies
 
-A new Flutter project.
+A simple but elegant looking movies and tv series app UI.
 
-## Getting Started
+## Screenshots
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="https://user-images.githubusercontent.com/126351083/230710905-76e7ab69-b6d9-4b75-8e5b-d20fe862842b.png" width="300" height="550">
+<img src="https://user-images.githubusercontent.com/126351083/230710911-26f87243-94d4-4a48-a531-a27b046abbfb.png" width="300" height="550">
+<img src="https://user-images.githubusercontent.com/126351083/230710913-f7ca16f9-1cc3-4e2e-b3b0-1af80bdc55bc.png" width="300" height="550">
+<img src="https://user-images.githubusercontent.com/126351083/230710916-60d10dcf-702b-4cc8-b084-ee42febdc127.png" width="300" height="550">
+
+
+
